@@ -4,6 +4,7 @@
     align-items: center;
     justify-content: center;
     height: 80vh;
+    width: 700px; 
     border-radius: 20px;
     background: linear-gradient(135deg, #ff0000, #ff6600);
     font-family: 'Press Start 2P', cursive;
@@ -53,4 +54,22 @@
     box-shadow: 0 2px #666;
     transform: translateY(1px);
   }
+  @media (max-width: 768px) {
+    .welcome-screen {
+      max-width: 90%;
+      padding: 20px;
+    }
   
+    .instructions h3 {
+      font-size: 1.2rem;
+    }
+  
+    .instructions p {
+      font-size: 1rem;
+    }
+  
+    .start-button {
+      padding: 10px 20px;
+      font-size: 1rem;
+    }
+  }
