@@ -1,25 +1,37 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import WelcomeScreen from './components/WelcomeScreen';
+import PokemonCard from './components/PokemonCard';
+import LikedPokemon from './components/LikedPokemon';
 import './App.css';
 
-function App() {
+const App = () => {
+  const [started, setStarted] = useState(false);
+  const [likedPokemons, setLikedPokemons] = useState([]);
+
+  const handleStart = () => {
+    setStarted(true);
+  };
+
+  const handleLike = (pokemon) => {
+    if (!likedPokemons.find((p) => p.id === pokemon.id)) {
+      setLikedPokemons((prevLikedPokemons) => [...prevLikedPokemons, pokemon]);
+    }
+  };
+  
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <header className="app-header">PokéApi</header>
+      {!started ? (
+        <WelcomeScreen onStart={handleStart} />
+      ) : (
+        <>
+          <PokemonCard onLike={handleLike} />
+          <LikedPokemon likedPokemons={likedPokemons} />
+        </>
+      )}
     </div>
   );
-}
+};
 
 export default App;

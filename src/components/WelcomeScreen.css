@@ -1,0 +1,56 @@
+.welcome-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #ff0000, #ff6600);
+    font-family: 'Press Start 2P', cursive;
+    text-align: center;
+    color: #fff;
+    padding: 20px;
+  }
+  
+  .instructions {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .instructions h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #ffcc00;
+  }
+  
+  .instructions p {
+    font-size: 1.2rem;
+    margin: 5px 0;
+  }
+  
+  .start-button {
+    background-color: #00ff4c;
+    color: #282c34;
+    border: 3px solid #282c34;
+    border-radius: 15px;
+    padding: 15px 30px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px #999;
+  }
+  
+  .start-button:hover {
+    background-color: #48ff00;
+    transform: translateY(-5px);
+    box-shadow: 0 9px #666;
+  }
+  
+  .start-button:active {
+    background-color: #7bff00;
+    box-shadow: 0 2px #666;
+    transform: translateY(1px);
+  }
+  
