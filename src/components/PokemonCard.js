@@ -11,7 +11,7 @@ const PokemonCard = ({ onLike }) => {
     setLoading(true);
     const randomId = Math.floor(Math.random() * 649) + 1; 
     try {
-      const response = await fetch(`https://cors-anywhere.herokuapp.com/https://pokeapi.co/api/v2/pokemon/${randomId}`);
+      const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${randomId}`);
       if (!response.ok) {
         throw new Error(`Error: ${response.status} ${response.statusText}`);
       }
@@ -23,7 +23,6 @@ const PokemonCard = ({ onLike }) => {
       setLoading(false);
     }
   };
-  
 
   useEffect(() => {
     // Skip fetching on first render
