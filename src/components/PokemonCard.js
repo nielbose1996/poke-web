@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useRef } from 'react';
-import axios from 'axios';
 import './PokemonCard.css';
 
 const PokemonCard = ({ onLike }) => {
@@ -9,13 +8,15 @@ const PokemonCard = ({ onLike }) => {
 
   const fetchRandomPokemon = async () => {
     setLoading(true);
-    const randomId = Math.floor(Math.random() * 649) + 1; 
+    const randomId = Math.floor(Math.random() * 649) + 1; // There are currently 898 Pokémon
+    console.log(`Fetching Pokémon with ID: ${randomId}`);
     try {
       const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${randomId}`);
       if (!response.ok) {
         throw new Error(`Error: ${response.status} ${response.statusText}`);
       }
       const data = await response.json();
+      console.log('Pokémon data fetched:', data);
       setPokemon(data);
     } catch (error) {
       console.error('Error fetching Pokémon data:', error);
