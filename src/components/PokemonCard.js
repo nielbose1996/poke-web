@@ -9,10 +9,14 @@ const PokemonCard = ({ onLike }) => {
 
   const fetchRandomPokemon = async () => {
     setLoading(true);
-    const randomId = Math.floor(Math.random() * 649) + 1;
+    const randomId = Math.floor(Math.random() * 649) + 1; 
     try {
-      const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${randomId}`);
-      setPokemon(response.data);
+      const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${randomId}`);
+      if (!response.ok) {
+        throw new Error(`Error: ${response.status} ${response.statusText}`);
+      }
+      const data = await response.json();
+      setPokemon(data);
     } catch (error) {
       console.error('Error fetching Pokémon data:', error);
     } finally {
