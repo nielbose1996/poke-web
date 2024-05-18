@@ -8,14 +8,14 @@ const PokemonCard = ({ onLike }) => {
 
   const fetchRandomPokemon = async () => {
     const randomId = Math.floor(Math.random() * 649) + 1;
-    console.log(`Fetching Pokémon with ID: ${randomId}`);
+
     try {
       const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${randomId}`);
       if (!response.ok) {
         throw new Error(`Error: ${response.status} ${response.statusText}`);
       }
       const data = await response.json();
-      console.log('Pokémon data fetched:', data);
+
       setPokemon(data);
     } catch (error) {
       console.error('Error fetching Pokémon data:', error);
@@ -38,14 +38,14 @@ const PokemonCard = ({ onLike }) => {
 
   const handleLike = () => {
     if (pokemon) {
-      console.log('Liked Pokémon:', pokemon);
+
       onLike(pokemon);
       handleFetchNewPokemon();
     }
   };
 
   const handleDislike = () => {
-    console.log('Disliked Pokémon:', pokemon);
+
     handleFetchNewPokemon();
   };
 
