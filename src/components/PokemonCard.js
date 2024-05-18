@@ -7,7 +7,6 @@ const PokemonCard = ({ onLike }) => {
   const isFirstRender = useRef(true);
 
   const fetchRandomPokemon = async () => {
-    //setLoading(true);
     const randomId = Math.floor(Math.random() * 649) + 1;
     console.log(`Fetching Pokémon with ID: ${randomId}`);
     try {
@@ -28,14 +27,12 @@ const PokemonCard = ({ onLike }) => {
   useEffect(() => {
     if (isFirstRender.current) {
       isFirstRender.current = false;
-      return;
+      fetchRandomPokemon();
     }
-    console.log('Component mounted, fetching Pokémon');
-    fetchRandomPokemon();
   }, []);
 
   const handleFetchNewPokemon = () => {
-    console.log('Fetching new Pokémon');
+    setLoading(true);
     fetchRandomPokemon();
   };
 
