@@ -7,11 +7,11 @@ const PokemonCard = ({ onLike }) => {
   const isFirstRender = useRef(true);
 
   const fetchRandomPokemon = async () => {
-    setLoading(true);
+    //setLoading(true);
     const randomId = Math.floor(Math.random() * 649) + 1;
     console.log(`Fetching Pokémon with ID: ${randomId}`);
     try {
-      const response = await fetch(`http://pokeapi.co/api/v2/pokemon/${randomId}`);
+      const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${randomId}`);
       if (!response.ok) {
         throw new Error(`Error: ${response.status} ${response.statusText}`);
       }
